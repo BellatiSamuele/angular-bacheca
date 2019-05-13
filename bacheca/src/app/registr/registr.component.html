@@ -1,0 +1,58 @@
+<div class="container">
+ <h2>Demo Form: Sku</h2>
+ <form [formGroup]="myForm"
+       (ngSubmit)="onSubmit(myForm.value)"
+       class="jumbotron">
+
+   <div class="form-group">
+     <label for="skuInput">SKU</label>
+     <input type="text"
+           id="skuInput"
+           placeholder="SKU"
+           name="sku"
+           [formControl]="myForm.controls['sku']"
+           class="form-control">
+
+     <label for="priceInput">Price</label>
+     <input type="number"
+           id="priceInput"
+           placeholder="price"
+           name="price"
+           [formControl]="myForm.controls['price']"
+           class="form-control">
+
+     <label for="urlInput">Web url</label>
+     <input type="url"
+           id="urlInput"
+           placeholder="url"
+           name="url"
+           [formControl]="myForm.controls['url']"
+           class="form-control">
+
+     <label for="nomeInput">Dammi il tuo nome</label>
+     <input type="text"
+           id="nomeInput"
+           placeholder="nome"
+           name="nome"
+           [formControl]="myForm.controls['nome']"
+           class="form-control">
+   </div>
+
+   <div *ngIf="!myForm.controls['sku'].valid || !myForm.controls['price'].valid || !myForm.controls['url'].valid || !myForm.controls['nome'].valid"
+         class="alert alert-danger">Input is invalid
+   </div>
+   <div *ngIf="myForm.controls['sku'].hasError('required') || myForm.controls['price'].hasError('required') || myForm.controls['url'].hasError('required') || myForm.controls['nome'].hasError('required')"
+         class="alert alert-danger">Input are required
+   </div>
+
+<div *ngIf="myForm.valid">
+<fieldset>
+   <button type="submit" class="btn btn-primary">Submit</button>
+</fieldset>
+</div>
+
+ </form>
+  
+ <div *ngIf="!myForm.valid"
+ class="alert alert-danger">Form is invalid</div>
+</div>
