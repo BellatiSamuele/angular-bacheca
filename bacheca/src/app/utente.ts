@@ -3,4 +3,5 @@ export class Utente{
   cognome: String;
   username: String;
   password: String;
+  email: string;
 }

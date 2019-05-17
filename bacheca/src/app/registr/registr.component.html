@@ -48,3 +48,19 @@
       <button type="submit" class="btn btn-primary">Submit</button>
    </div>
  </form>
+
+ <div *ngIf="!myForm.controls['nome'].valid"
+     class="alert alert-danger">campo nome invalido
+</div>
+<div *ngIf="myForm.controls['nome'].hasError('required')"
+     class="alert alert-danger">campo nome richiesto
+</div>
+
+<ul>
+  <li *ngFor = "let a of utenti">Nome: {{a.nome}} <br>
+  Cognome: {{a.cognome}}<br>
+  Username: {{a.username}} <br>
+  Password: {{a.password}}<br>
+  Email: {{a.email}}
+  </li>
+</ul>
