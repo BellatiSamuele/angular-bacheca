@@ -15,10 +15,11 @@ export class RegistrComponent implements OnInit {
 myForm: FormGroup;
  constructor(fb: FormBuilder) {
    this.myForm = fb.group({
-     'sku': ['ABC123', Validators.required],
-     'price': ['123', Validators.required],
-     'url': ['https://', Validators.required],
-     'nome': ['Nome', Validators.required]
+     'nome': ['ABC', Validators.required],
+     'cognome': ['ABC', Validators.required],
+     'username': ['ABC', Validators.required],
+     'email': ['ABC@ABC', Validators.required],
+     'password': ['ABC123!"£', Validators.required]
    });
  }
  ngOnInit() {
