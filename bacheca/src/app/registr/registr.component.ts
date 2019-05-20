@@ -14,9 +14,9 @@ import { Users } from '../mock-utente';
 })
 export class RegistrComponent implements OnInit {
 utenti = Users;
-myForm: FormGroup;
+signup: FormGroup;
  constructor(fb: FormBuilder) {
-   this.myForm = fb.group({
+   this.signup = fb.group({
      'nome': ['ABC', Validators.required],
      'cognome': ['ABC', Validators.required],
      'username': ['ABC', Validators.required],
@@ -24,6 +24,7 @@ myForm: FormGroup;
      'password': ['ABC123!"£', Validators.required]
    });
  }
+
  ngOnInit() {
  }
 
@@ -31,11 +32,11 @@ myForm: FormGroup;
    console.log('valori inseriti: ', value);
 
       let utente : Utente = new Utente();
-      utente.nome = this.myForm.controls['nome'].value;
-      utente.cognome = this.myForm.controls['cognome'].value;
-      utente.username = this.myForm.controls['username'].value;
-      utente.password = this.myForm.controls['password'].value;
-      utente.email = this.myForm.controls['email'].value;
+      utente.nome = this.signup.controls['nome'].value;
+      utente.cognome = this.signup.controls['cognome'].value;
+      utente.username = this.signup.controls['username'].value;
+      utente.password = this.signup.controls['password'].value;
+      utente.email = this.signup.controls['email'].value;
 
       this.utenti.push(utente);
 

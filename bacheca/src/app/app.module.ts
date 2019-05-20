@@ -8,11 +8,13 @@ import {
  FormsModule,
  ReactiveFormsModule
 } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrComponent
+    RegistrComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

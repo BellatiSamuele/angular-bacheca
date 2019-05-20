@@ -1,7 +1,7 @@
 <div class="container">
  <h2>Registrati</h2>
- <form [formGroup]="myForm"
-       (ngSubmit)="onSubmit(myForm.value)"
+ <form [formGroup]="signup"
+       (ngSubmit)="onSubmit(form-signup.value)"
        class="jumbotron">
 
    <div class="form-group">
@@ -10,7 +10,7 @@
            id="nomeInput"
            placeholder="dimmi il nome"
            name="nome"
-           [formControl]="myForm.controls['nome']"
+           [formControl]="signup.controls['nome']"
            class="form-control">
 
      <label for="cognInput">Cognome</label>
@@ -18,7 +18,7 @@
            id="cognInput"
            placeholder="dimmi il cognome"
            name="cognome"
-           [formControl]="myForm.controls['cognome']"
+           [formControl]="signup.controls['cognome']"
            class="form-control">
 
      <label for="usernInput">Username</label>
@@ -26,7 +26,7 @@
            id="usernInput"
            placeholder="dimmi l'username"
            name="username"
-           [formControl]="myForm.controls['username']"
+           [formControl]="signup.controls['username']"
            class="form-control">
 
      <label for="emailInput">Email</label>
@@ -34,7 +34,7 @@
            id="emailInput"
            placeholder="dimmi l'email"
            name="email"
-           [formControl]="myForm.controls['email']"
+           [formControl]="signup.controls['email']"
            class="form-control">
 
      <label for="pswInput">Password</label>
@@ -42,53 +42,46 @@
            id="pswInput"
            placeholder="scrivi password"
            name="password"
-           [formControl]="myForm.controls['password']"
-           class="form-control">
+           [formControl]="signup.controls['password']"
+           class="form-control"><br>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Registrati</button>
    </div>
  </form>
 
- <div *ngIf="!myForm.controls['nome'].valid"
+
+
+ <div *ngIf="!signup.controls['nome'].valid"
      class="alert alert-danger">campo <i>nome</i> invalido
 </div>
-<div *ngIf="myForm.controls['nome'].hasError('required')"
+<div *ngIf="signup.controls['nome'].hasError('required')"
      class="alert alert-danger">campo <i>nome</i> richiesto
 </div>
 
- <div *ngIf="!myForm.controls['cognome'].valid"
+ <div *ngIf="!signup.controls['cognome'].valid"
      class="alert alert-danger">campo <i>cognome</i> invalido
 </div>
-<div *ngIf="myForm.controls['cognome'].hasError('required')"
+<div *ngIf="signup.controls['cognome'].hasError('required')"
      class="alert alert-danger">campo <i>cognome</i> richiesto
 </div>
 
- <div *ngIf="!myForm.controls['username'].valid"
+ <div *ngIf="!signup.controls['username'].valid"
      class="alert alert-danger">campo <i>username</i> invalido
 </div>
-<div *ngIf="myForm.controls['username'].hasError('required')"
+<div *ngIf="signup.controls['username'].hasError('required')"
      class="alert alert-danger">campo <i>username</i> richiesto
 </div>
 
- <div *ngIf="!myForm.controls['email'].valid"
+ <div *ngIf="!signup.controls['email'].valid"
      class="alert alert-danger">campo <i>email</i> invalido
 </div>
-<div *ngIf="myForm.controls['email'].hasError('required')"
+<div *ngIf="signup.controls['email'].hasError('required')"
      class="alert alert-danger">campo <i>email</i> richiesto
 </div>
 
- <div *ngIf="!myForm.controls['password'].valid"
+ <div *ngIf="!signup.controls['password'].valid"
      class="alert alert-danger">campo <i>password</i> invalido
 </div>
-<div *ngIf="myForm.controls['password'].hasError('required')"
+<div *ngIf="signup.controls['password'].hasError('required')"
      class="alert alert-danger">campo <i>password</i> richiesto
 </div>
-
-<ul>
-  <li *ngFor = "let a of utenti">Nome: {{a.nome}} <br>
-  Cognome: {{a.cognome}}<br>
-  Username: {{a.username}} <br>
-  Password: {{a.password}}<br>
-  Email: {{a.email}}
-  </li>
-</ul>

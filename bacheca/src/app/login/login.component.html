@@ -1,0 +1,40 @@
+ <div class="container">
+ <h2>O effettua il Login</h2>
+ <form [formGroup]="signin"
+       (ngSubmit)="onSubmit(form-signin.value)"
+       class="jumbotron">
+  <div class="form-group">
+
+    <label for="usernInput">Username</label>
+    <input type="text"
+           id="usernInput"
+           placeholder="dimmi l'username"
+           name="username"
+           [formControl]="signin.controls['username']"
+           class="form-control">
+
+     <label for="pswInput">Password</label>
+     <input type="password"
+           id="pswInput"
+           placeholder="scrivi password"
+           name="password"
+           [formControl]="signin.controls['password']"
+           class="form-control"><br>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+   </div>
+ </form>
+
+<div *ngIf="!signin.controls['username'].valid"
+     class="alert alert-danger">campo <i>username</i> invalido
+</div>
+<div *ngIf="signin.controls['username'].hasError('required')"
+     class="alert alert-danger">campo <i>username</i> richiesto
+</div>
+
+<div *ngIf="!signin.controls['password'].valid"
+     class="alert alert-danger">campo <i>password</i> invalido
+</div>
+<div *ngIf="signin.controls['password'].hasError('required')"
+     class="alert alert-danger">campo <i>password</i> richiesto
+</div>
