@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
 utenti = Users;
 signin: FormGroup;
+nomeUtenteOnline: string = null;
+cognomeUtenteOnline: string = null;
  constructor(fb: FormBuilder) {
    this.signin = fb.group({
      'username': ['ABC', Validators.required],
@@ -33,7 +35,22 @@ signin: FormGroup;
       utente.username = this.signin.controls['username'].value;
       utente.password = this.signin.controls['password'].value;
 
-      this.utenti.push(utente);
+      if(this.signin.valid){
+        let trovato = false;
+        for(let i of this.utenti){
+          if(this.signin.controls['username'].value == i.username){
+            if(this.signin.controls['password'].value == i.password){
+              trovato = true;
+              this.cognomeUtenteOnline = i.cognome;
+              this.nomeUtenteOnline = i.nome;
+              this.username = i.username;
+              document.getElementById("loginEffettuato").style.display = "block";
+              this.logoutEffettuato = false;
+              break;
+            }
+          }
+        }
+      }
 
     return false;
  }
