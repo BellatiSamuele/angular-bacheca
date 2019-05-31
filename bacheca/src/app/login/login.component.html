@@ -1,5 +1,5 @@
  <div class="container">
- <h2>O effettua il Login</h2>
+ <h2>Login</h2>
  <form [formGroup]="signin"
        (ngSubmit)="onSubmit(form-signin.value)"
        class="jumbotron">
@@ -21,7 +21,7 @@
            [formControl]="signin.controls['password']"
            class="form-control"><br>
 
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!signin.valid">Login</button>
    </div>
  </form>
 

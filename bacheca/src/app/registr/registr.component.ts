@@ -15,6 +15,7 @@ import { Users } from '../mock-utente';
 export class RegistrComponent implements OnInit {
 utenti = Users;
 signup: FormGroup;
+hide: boolean;
  constructor(fb: FormBuilder) {
    this.signup = fb.group({
      'nome': ['ABC', Validators.required],
@@ -42,4 +43,14 @@ signup: FormGroup;
 
     return false;
  }
+
+     df(){
+      if(!this.hide){
+        this.hide = true;
+        document.getElementById("btnLogin").innerHTML = "Registrazione";
+      } else {
+        this.hide = false;
+        document.getElementById("btnLogin").innerHTML = "Login";
+      }
+    }
 }

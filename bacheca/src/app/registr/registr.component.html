@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [hidden] = "hide">
  <h2>Registrati</h2>
  <form [formGroup]="signup"
        (ngSubmit)="onSubmit(form-signup.value)"
@@ -45,43 +45,47 @@
            [formControl]="signup.controls['password']"
            class="form-control"><br>
 
-      <button type="submit" class="btn btn-primary">Registrati</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!signup.valid">Registrati</button>
    </div>
  </form>
 
 
+  <div *ngIf="!signup.controls['nome'].valid"
+      class="alert alert-danger">campo <i>nome</i> invalido
+  </div>
+  <div *ngIf="signup.controls['nome'].hasError('required')"
+      class="alert alert-danger">campo <i>nome</i> richiesto
+  </div>
 
- <div *ngIf="!signup.controls['nome'].valid"
-     class="alert alert-danger">campo <i>nome</i> invalido
-</div>
-<div *ngIf="signup.controls['nome'].hasError('required')"
-     class="alert alert-danger">campo <i>nome</i> richiesto
+  <div *ngIf="!signup.controls['cognome'].valid"
+      class="alert alert-danger">campo <i>cognome</i> invalido
+  </div>
+  <div *ngIf="signup.controls['cognome'].hasError('required')"
+      class="alert alert-danger">campo <i>cognome</i> richiesto
+  </div>
+
+  <div *ngIf="!signup.controls['username'].valid"
+      class="alert alert-danger">campo <i>username</i> invalido
+  </div>
+  <div *ngIf="signup.controls['username'].hasError('required')"
+      class="alert alert-danger">campo <i>username</i> richiesto
+  </div>
+
+  <div *ngIf="!signup.controls['email'].valid"
+      class="alert alert-danger">campo <i>email</i> invalido
+  </div>
+  <div *ngIf="signup.controls['email'].hasError('required')"
+      class="alert alert-danger">campo <i>email</i> richiesto
+  </div>
+
+  <div *ngIf="!signup.controls['password'].valid"
+      class="alert alert-danger">campo <i>password</i> invalido
+  </div>
+  <div *ngIf="signup.controls['password'].hasError('required')"
+      class="alert alert-danger">campo <i>password</i> richiesto
+  </div>
 </div>
 
- <div *ngIf="!signup.controls['cognome'].valid"
-     class="alert alert-danger">campo <i>cognome</i> invalido
-</div>
-<div *ngIf="signup.controls['cognome'].hasError('required')"
-     class="alert alert-danger">campo <i>cognome</i> richiesto
-</div>
+<button (click) = "df()" class="btn btn-primary" id = "btnLogin">login</button>
 
- <div *ngIf="!signup.controls['username'].valid"
-     class="alert alert-danger">campo <i>username</i> invalido
-</div>
-<div *ngIf="signup.controls['username'].hasError('required')"
-     class="alert alert-danger">campo <i>username</i> richiesto
-</div>
-
- <div *ngIf="!signup.controls['email'].valid"
-     class="alert alert-danger">campo <i>email</i> invalido
-</div>
-<div *ngIf="signup.controls['email'].hasError('required')"
-     class="alert alert-danger">campo <i>email</i> richiesto
-</div>
-
- <div *ngIf="!signup.controls['password'].valid"
-     class="alert alert-danger">campo <i>password</i> invalido
-</div>
-<div *ngIf="signup.controls['password'].hasError('required')"
-     class="alert alert-danger">campo <i>password</i> richiesto
-</div>
+<app-login [hidden] = "!hide"></app-login>
