@@ -5,13 +5,8 @@
     <h4 class="d-inline-block float-right text-info">€ {{post.prezzo}}</h4>
     <h6 class="text-success">tipo: {{post.tipo}}</h6>
     <h6 class="text-success">descrizione: {{post.descrizione}}</h6>
-    <h6 class="float-right text-info">utente: {{post.username}}</h6>
-    <br>
-    <br>
-    <h6 class="text-info float-right"><small><b>{{post.data}}</b></small></h6>
-    <br>
-    <br>
-    <br>
+    <h6 class="float-right text-info">utente: {{post.username}}</h6><br>
+    <h6 class="text-info float-right">{{post.data}}</h6>
   </div>
 </div>
 <form id="aggiuntaProdotto" [formGroup]="prodottoForm" (ngSubmit)="aggiungiProdotto(prodottoForm.value)">
