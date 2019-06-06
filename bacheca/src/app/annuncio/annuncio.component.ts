@@ -13,11 +13,15 @@ export class AnnuncioComponent implements OnInit {
   @Input() nomeUtenteOnline;
   @Input() cognomeUtenteOnline;
   @Input() username;
-  oggettoForm: FormGroup;
+  prodottoForm: FormGroup;
   posts = Posts;
 
   constructor(fb: FormBuilder) {
-    this.oggettoForm = fb.group({'nome': ['nome', Validators.required], 'tipo': ['tipo', Validators.required], 'prezzo': ['0', Validators.required], 'descrizione': ['descrizione', Validators.required]});
+    this.prodottoForm = fb.group({
+      'nome': ['dagli un nome', Validators.required],
+      'tipo': ['scegli il tipo', Validators.required],
+      'prezzo': ['00', Validators.required],
+      'descrizione': ['descrivi', Validators.required]});
   }
 
   ngOnInit() {
@@ -25,13 +29,13 @@ export class AnnuncioComponent implements OnInit {
 
   aggiungiOggetto(): boolean {
 
-    if(this.oggettoForm.valid){
+    if(this.prodottoForm.valid){
       if(this.username != null){
         let post: Post = new Post();
-        post.nome = this.oggettoForm.controls['nome'].value;
-        post.tipo = this.oggettoForm.controls['tipo'].value;
-        post.prezzo = Number(this.oggettoForm.controls['prezzo'].value);
-        post.descrizione = this.oggettoForm.controls['descrizione'].value;
+        post.nome = this.prodottoForm.controls['nome'].value;
+        post.tipo = this.prodottoForm.controls['tipo'].value;
+        post.prezzo = Number(this.prodottoForm.controls['prezzo'].value);
+        post.descrizione = this.prodottoForm.controls['descrizione'].value;
         post.username = this.username;
         let date: Date = new Date();
         post.data = date.getHours() + ':' + date.getMinutes() + ', il ' + date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear();
