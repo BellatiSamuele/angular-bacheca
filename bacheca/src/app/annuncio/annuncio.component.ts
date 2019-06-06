@@ -27,7 +27,7 @@ export class AnnuncioComponent implements OnInit {
   ngOnInit() {
   }
 
-  aggiungiOggetto(): boolean {
+  aggiungiProdoto(): boolean {
 
     if(this.prodottoForm.valid){
       if(this.username != null){
@@ -38,16 +38,11 @@ export class AnnuncioComponent implements OnInit {
         post.descrizione = this.prodottoForm.controls['descrizione'].value;
         post.username = this.username;
         let date: Date = new Date();
-        post.data = date.getHours() + ':' + date.getMinutes() + ', il ' + date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear();
+        post.data = date.getHours() + ':' + date.getMinutes() + ' - ' + date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear();
         this.posts.push(post);
-        document.getElementById("loginPerOggetti").style.display = "none";
-        } else {
-          document.getElementById("loginPerOggetti").style.display = "block";
-        }
-          } else {
-              console.log("Il form non è valido");
-          }
 
         return false;
       }
-   }
+    }
+  }
+}

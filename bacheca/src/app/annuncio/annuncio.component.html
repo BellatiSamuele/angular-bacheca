@@ -3,13 +3,13 @@
   <div *ngFor="let post of posts" class="border border-warning rounded p-4" id="post">
     <h2 class="d-inline-block text-primary">{{post.nome}}</h2>
     <h4 class="d-inline-block float-right text-info">€ {{post.prezzo}}</h4>
-    <h6 class="text-success">tipo: {{post.tipo}}</h6>
-    <h6 class="text-success">descrizione: {{post.descrizione}}</h6>
-    <h6 class="float-right text-info">utente: {{post.username}}</h6><br>
+    <h6 class="text-success">tipo: <b>{{post.tipo}}</b></h6>
+    <h6 class="text-success">descrizione: <b>{{post.descrizione}}</b></h6>
+    <h6 class="float-right text-info">utente: <b>{{post.username}}</b></h6><br>
     <h6 class="text-info float-right">{{post.data}}</h6>
   </div>
 </div>
-<form id="aggiuntaProdotto" [formGroup]="prodottoForm" (ngSubmit)="aggiungiProdotto(prodottoForm.value)">
+<form id="aggiungiProdotto" [formGroup]="prodottoForm" (ngSubmit)="aggiungiProdotto(prodottoForm.value)">
   <h3><b>Aggiungi Prodotto</b></h3>
       <div><b>Nome</b>
           <input type="text" class="form-control" name="nome" [formControl]="prodottoForm.controls['nome']">
