@@ -16,8 +16,10 @@ export class LoginComponent implements OnInit {
 
 utenti = Users;
 signin: FormGroup;
-nomeUtenteOnline: string = null;
-cognomeUtenteOnline: string = null;
+nomeUtenteOnline: String = null;
+cognomeUtenteOnline: String = null;
+username: String = null;
+logoutEffettuato: boolean;
  constructor(fb: FormBuilder) {
    this.signin = fb.group({
      'username': ['ABC', Validators.required],
@@ -28,7 +30,7 @@ cognomeUtenteOnline: string = null;
   ngOnInit() {
   }
 
- onSubmit(value: string): boolean {
+ onSubmit(value: String): boolean {
    console.log('valori inseriti: ', value);
 
       let utente : Utente = new Utente();
@@ -44,8 +46,8 @@ cognomeUtenteOnline: string = null;
               this.cognomeUtenteOnline = i.cognome;
               this.nomeUtenteOnline = i.nome;
               this.username = i.username;
-              document.getElementById("loginEffettuato").style.display = "block";
               this.logoutEffettuato = false;
+              console.log("effettuato");
               break;
             }
           }

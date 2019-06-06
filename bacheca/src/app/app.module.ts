@@ -9,12 +9,14 @@ import {
  ReactiveFormsModule
 } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AnnuncioComponent } from './annuncio/annuncio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrComponent,
-    LoginComponent
+    LoginComponent,
+    AnnuncioComponent
   ],
   imports: [
     BrowserModule,
