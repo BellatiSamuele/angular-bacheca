@@ -10,7 +10,7 @@
   </div>
 </div>
 <form id="aggiungiProdotto" [formGroup]="prodottoForm" (ngSubmit)="aggiungiProdotto(prodottoForm.value)">
-  <h3><b>Aggiungi Prodotto</b></h3>
+  <h3><b>Aggiungi annuncio</b></h3>
       <div><b>Nome</b>
           <input type="text" class="form-control" name="nome" [formControl]="prodottoForm.controls['nome']">
 
@@ -27,7 +27,6 @@
       <input type="text" class="form-control" name="descrizione" [formControl]="prodottoForm.controls['descrizione']">
 
   </div>
-  <h4 id="loginPerOggetti" style="display:none">NON HAI EFFETTUATO IL LOGIN</h4>
 
 
   <div *ngIf="!prodottoForm.controls['nome'].valid"
