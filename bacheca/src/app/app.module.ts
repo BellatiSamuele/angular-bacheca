@@ -10,13 +10,17 @@ import {
 } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AnnuncioComponent } from './annuncio/annuncio.component';
+import { NewObjectComponent } from './new-object/new-object.component';
+import { ObjectsListComponent } from './objects-list/objects-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrComponent,
     LoginComponent,
-    AnnuncioComponent
+    AnnuncioComponent,
+    NewObjectComponent,
+    ObjectsListComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export const Posts: Post[] = [
   { nome:'Test Voight-Kampff',
     tipo: 'Tecnologia',
     prezzo: 99,
-    descrizione: 'Test per scoprire se il tuo amico è un replicante',
+    descrizione: 'Test per scoprire se il tuo amico è un replicante. O se lo sei tu...',
     username: 'RDeckard',
     data: '22:54 - 12/12/2019',
   },

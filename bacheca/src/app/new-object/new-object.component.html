@@ -1,0 +1,23 @@
+<form [formGroup]="oggettoForm" (ngSubmit)="aggiungiOggetto(oggettoForm.value)">
+    <h3><b>Aggiungi un oggetto</b></h3>
+    <div class="form-row m-2">
+        <div class="col">
+            Nome:
+            <input type="text" class="form-control" onfocus="this.value=''" name="nome" [formControl]="oggettoForm.controls['nome']">
+            <div *ngIf="oggettoForm.controls['nome'].hasError('required')" class="text-danger">campo <i>nome</i> richiesto</div>
+        </div>
+        <div class="col">
+            Tipo:
+            <input type="text" class="form-control" onfocus="this.value=''" name="tipo" [formControl]="oggettoForm.controls['tipo']">
+            <div *ngIf="oggettoForm.controls['tipo'].hasError('required')" class="text-danger">campo <i>tipo</i> richiesto</div>
+        </div>
+    </div>
+    <div class="m-3">
+        Descrizione:
+        <input type="text" class="form-control" onfocus="this.value=''" name="descrizione" [formControl]="oggettoForm.controls['descrizione']">
+        <div *ngIf="oggettoForm.controls['descrizione'].hasError('required')" class="text-danger">campo <i>descrizione</i> richiesto</div>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit" [disabled]="!oggettoForm.valid">Aggiungi</button>
+  </form>

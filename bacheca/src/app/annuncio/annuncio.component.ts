@@ -27,7 +27,7 @@ export class AnnuncioComponent implements OnInit {
   ngOnInit() {
   }
 
-  aggiungiProdoto(): boolean {
+  aggiungiProdotto(): boolean {
 
     if(this.prodottoForm.valid){
       if(this.username != null){
