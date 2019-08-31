@@ -30,7 +30,6 @@ export class AnnuncioComponent implements OnInit {
   aggiungiProdotto(): boolean {
 
     if(this.prodottoForm.valid){
-      if(this.username != null){
         let post: Post = new Post();
         post.nome = this.prodottoForm.controls['nome'].value;
         post.tipo = this.prodottoForm.controls['tipo'].value;
@@ -44,5 +43,4 @@ export class AnnuncioComponent implements OnInit {
         return false;
       }
     }
-  }
 }

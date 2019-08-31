@@ -1,4 +1,4 @@
-<form [formGroup]="oggettoForm" (ngSubmit)="aggiungiOggetto(oggettoForm.value)">
+<form id="aggiungiOggetto" [formGroup]="oggettoForm" (ngSubmit)="aggiungiOggetto(oggettoForm.value)">
     <h3><b>Aggiungi un oggetto</b></h3>
     <div class="form-row m-2">
         <div class="col">
@@ -18,5 +18,14 @@
         <div *ngIf="oggettoForm.controls['descrizione'].hasError('required')" class="text-danger">campo <i>descrizione</i> richiesto</div>
     </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="!oggettoForm.valid">Aggiungi</button>
-  </form>
+    <button type="submit" class="btn btn-primary" [disabled]="!oggettoForm.valid">Aggiungi</button>
+
+    <h1 class="text-center">Oggetti</h1>
+      <ul>
+        <li *ngFor = "let oggetto of oggetti">
+            Nome: {{oggetto.nome}}<br>
+            Tipo: {{oggetto.tipo}}<br>
+            Descrizione: {{oggetto.descrizione}}
+        </li>
+      </ul>
+</form>

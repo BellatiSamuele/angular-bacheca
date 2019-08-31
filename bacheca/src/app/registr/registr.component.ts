@@ -30,7 +30,7 @@ hide: boolean;
  }
 
  onSubmit(value: string): boolean {
-   console.log('valori inseriti: ', value);
+
 
       let utente : Utente = new Utente();
       utente.nome = this.signup.controls['nome'].value;
@@ -41,6 +41,7 @@ hide: boolean;
 
       this.utenti.push(utente);
 
+     console.log('valori inseriti: ', value);
     return false;
  }
 
